@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 
-@Document
+@Document(collection = "books")
 public class Book {
     @Id
     private String id;
@@ -59,4 +59,5 @@ public class Book {
     public void setUserHasBook(User userHasBook) {
         this.userHasBook = userHasBook;
     }
+
 }

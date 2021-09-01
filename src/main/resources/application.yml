@@ -1,0 +1,4 @@
+mongo-db-config:
+  database-name: BooksDB
+  connection: mongodb://localhost:27017/BooksDB
+  book-collection-name: books

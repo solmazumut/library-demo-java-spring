@@ -4,6 +4,7 @@ import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.config.AbstractMongoClientConfiguration;
 
@@ -11,7 +12,9 @@ import java.util.Collection;
 import java.util.Collections;
 
 @Configuration
+@ConfigurationProperties(prefix = "mongo-db-config")
 public class MongoConfig extends AbstractMongoClientConfiguration {
+
 
     @Override
     protected String getDatabaseName() {
@@ -27,9 +30,11 @@ public class MongoConfig extends AbstractMongoClientConfiguration {
 
         return MongoClients.create(mongoClientSettings);
     }
-
+/*
     @Override
     public Collection getMappingBasePackages() {
-        return Collections.singleton("books");
+        return Collections.singleton(getBookCollectionName());
     }
+
+ */
 }
